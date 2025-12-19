@@ -26,6 +26,12 @@ The solution intentionally emphasizes **fundamental front-end engineering princi
 
 ---
 
+
+## Requirements
+
+- Node.js: 20
+- npm >= 9
+
 ## Setup & Run
 
 ```bash
