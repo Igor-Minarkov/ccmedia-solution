@@ -1,0 +1,133 @@
+.card {
+  width: 220px;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: var(--shadow);
+
+    .card__abv {
+      transform: translateX(-74%);
+    }
+  }
+
+  &__media {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  &__img {
+    background-color: var(--surface);
+    height: 212px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: top;
+  }
+
+  &__title {
+    display: flex;
+    padding: 0 10px;
+    justify-content: center;
+    align-items: center;
+    height: 54px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    text-align: center;
+  }
+
+  &__abv {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 68px;
+    height: 68px;
+    pointer-events: none;
+
+    transform: translateX(0);
+    transition: transform 0.16s ease;
+  }
+
+  &__abv::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  &__abv::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+  }
+
+  &__abv span {
+    position: absolute;
+    top: 0px;
+    right: 3px;
+    width: 48px;
+    color: var(--surface);
+    height: 48px;
+    padding: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+
+    display: grid;
+    place-items: start end;
+  }
+
+  &__ibu {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    align-items: baseline;
+
+    position: absolute;
+    width: 64px;
+    height: 30px;
+    left: 0px;
+    bottom: 0px;
+    background: var(--ibu-badge-bg);
+    color: var(--surface);
+    padding: 6px 8px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  &__ibu strong {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    margin: 0 auto;
+  }
+}
+
+.card--low {
+  background: var(--ibu-low);
+}
+.card--mid {
+  background: var(--ibu-mid);
+}
+.card--high {
+  background: var(--ibu-high);
+}
+.card--extreme {
+  background: var(--ibu-extreme);
+}

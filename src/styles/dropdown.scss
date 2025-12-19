@@ -1,0 +1,98 @@
+.ddl {
+  position: relative;
+  display: inline-block;
+
+  &__trigger {
+    height: 44px;
+    min-width: 210px;
+    padding: 0 14px;
+    border: 0;
+
+    background: var(--accent);
+    color: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid rgba(255, 255, 255, 0.9);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+      transform: rotate(45deg);
+      margin-left: auto;
+    }
+  }
+
+  /* POP = само wrapper (без голем background card) */
+  &__pop {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    z-index: 100;
+
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+
+    overflow: visible;
+  }
+
+  &__panel {
+    background: var(--surface);
+
+    overflow: hidden;
+    box-shadow: var(--shadow);
+
+    &--left {
+      width: 210px;
+    }
+
+    &--right {
+      position: absolute;
+      left: calc(210px);
+      top: 0;
+
+      width: 120px;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    border: 2px solid transparent;
+    background: var(--surface);
+    text-align: left;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: border-color 0.15s ease, background 0.15s ease;
+
+    &:hover,
+    &.is-active {
+      background: var(--child);
+      border-color: var(--accent);
+    }
+
+    &--child {
+      justify-content: flex-start;
+    }
+  }
+
+  &__chev {
+    opacity: 0.6;
+    font-size: 18px;
+    line-height: 1;
+  }
+}
